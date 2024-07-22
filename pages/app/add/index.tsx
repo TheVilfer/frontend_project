@@ -34,7 +34,8 @@ export default function AddItem() {
     if (!type) newErrors.type = 'Type is required';
     if (!img) newErrors.img = 'Image is required';
 
-    if (img && img.size >= 1024 * 1024) newErrors.img = 'Image must be less than 1MB';
+    if (img && img.size >= 1024 * 1024)
+      newErrors.img = 'Image must be less than 1MB';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -108,19 +109,19 @@ export default function AddItem() {
               className="block text-lg font-medium text-gray-700"
             >
               Type
-            </label>            
+            </label>
             <select
-            name="type"
-            id="type"
-            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-            onChange={handleTypeChange}
-          >
-            {typeClother.map((type, i) => (
-              <option key={i} value={type}>
-                {type}
-              </option>
-            ))}
-          </select>
+              name="type"
+              id="type"
+              className="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+              onChange={handleTypeChange}
+            >
+              {typeClother.map((type, i) => (
+                <option key={i} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
 
             {errors.type && (
               <p className="mt-2 text-sm text-red-600">{errors.type}</p>

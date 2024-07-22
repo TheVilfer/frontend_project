@@ -33,7 +33,8 @@ const GenerateOutfit: React.FC = () => {
     });
     const data = await resp.json();
 
-    let outfit = JSON.parse(data.response.kwargs.content).outfit as WardropeGeneration;
+    let outfit = JSON.parse(data.response.kwargs.content)
+      .outfit as WardropeGeneration;
 
     // Find the corresponding items in the wardrobe and set the full outfit
     outfit?.dress && (outfit.dress.img = imgHolder[outfit.dress.id]);

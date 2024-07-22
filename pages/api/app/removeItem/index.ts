@@ -22,11 +22,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   console.log({ uuid });
 
-  await supabase
-    .from('items')
-    .delete()
-    .eq('owner', uuid)
-    .eq('id', req.body.id);
+  await supabase.from('items').delete().eq('owner', uuid).eq('id', req.body.id);
 
   res.send({
     content: 'Item removed successfully.',
