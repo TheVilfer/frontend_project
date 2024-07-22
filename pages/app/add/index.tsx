@@ -33,6 +33,9 @@ export default function AddItem() {
     if (!name) newErrors.name = 'Name is required';
     if (!type) newErrors.type = 'Type is required';
     if (!img) newErrors.img = 'Image is required';
+
+    if (img && img.size >= 1024 * 1024) newErrors.img = 'Image must be less than 1MB';
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };

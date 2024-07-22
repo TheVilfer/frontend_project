@@ -3,7 +3,6 @@ import { authOptions } from '../../auth/[...nextauth]';
 
 import { createClient } from '@supabase/supabase-js';
 
-// Create a single supabase client for interacting with your database
 const supabase = createClient(
   process.env.SUPABASE_URL || '',
   process.env.SUPABASE_SERVICE_ROLE_KEY || '',
@@ -14,18 +13,18 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await getServerSession(req, res, authOptions);
   if (!session) {
-    res.send({
+    res.status(403).send({
       content: 'You need to be signed in to access this content.',
     });
   }
 
-  const { user, uuid } = session;
+  const { uuid } = session;
   const { name, type, img } = req.body;
 
   console.log({ name, type, img, uuid });
 
   // add uuid to Users table, if it doesn't exist
-  const { data: users, error } = await supabase
+  const { data: users } = await supabase
     .from('Users')
     .select('*')
     .eq('id', uuid);
