@@ -62,8 +62,12 @@ const GenerateOutfit: React.FC = () => {
       const resp = await fetch('/api/app/getItem', {
         method: 'POST',
       });
+
       const data = await resp.json();
+      const items = data.items;
+
       console.log(data.items);
+
       setWardrobe(data.items);
     };
     fetchWardrobe();
@@ -142,7 +146,7 @@ const GenerateOutfit: React.FC = () => {
               </div>
             ) : (
               <>
-                {outfit.top && (
+                {outfit.top && outfit.top.name && (
                   <div className="flex flex-col items-center">
                     <Image
                       src={outfit.top.img || ''}
@@ -154,7 +158,7 @@ const GenerateOutfit: React.FC = () => {
                     <p className="mt-2 text-lg text-gray-700">Top</p>
                   </div>
                 )}
-                {outfit.bottom && (
+                {outfit.bottom && outfit.bottom.name && (
                   <div className="flex flex-col items-center">
                     <Image
                       src={outfit.bottom.img || ''}
@@ -168,7 +172,7 @@ const GenerateOutfit: React.FC = () => {
                 )}
               </>
             )}
-            {outfit.shoes && (
+            {outfit.shoes && outfit.shoes.name && (
               <div className="flex flex-col items-center">
                 <Image
                   src={outfit.shoes.img || ''}

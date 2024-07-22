@@ -17,17 +17,17 @@ const Header: React.FC = () => {
         <div className="flex items-center">
         {session ? (
               <nav className="hidden md:flex space-x-4">
-              <Link href="/wardrope">
+              <Link href="/app/wardrope">
                 <span className="text-gray-600 hover:text-gray-800 mx-2">
                   Wardrope
                 </span>
               </Link>
-              <Link href="/add">
+              <Link href="/app/add">
                 <span className="text-gray-600 hover:text-gray-800 mx-2">
                   Add item
                 </span>
               </Link>
-              <Link href="/generate">
+              <Link href="/app/generate">
                 <span className="text-gray-600 hover:text-gray-800 mx-2">
                   Generate outfit
                 </span>
@@ -84,17 +84,17 @@ const Header: React.FC = () => {
         <div className="md:hidden bg-white shadow-md">
         {session ? (
               <nav className="flex flex-col items-center space-y-4 py-4">
-              <Link href="/wardrope">
+              <Link href="/app/wardrope">
                 <span className="text-gray-600 hover:text-gray-800 mx-2">
                   Wardrope
                 </span>
               </Link>
-              <Link href="/add">
+              <Link href="/app/add">
                 <span className="text-gray-600 hover:text-gray-800 mx-2">
                   Add item
                 </span>
               </Link>
-              <Link href="/generate">
+              <Link href="/app/generate">
                 <span className="text-gray-600 hover:text-gray-800 mx-2">
                   Generate outfit
                 </span>
