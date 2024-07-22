@@ -54,28 +54,28 @@ export default function Item({ post }: Props) {
   );
 }
 
-// export async function getStaticProps({ params }: GetStaticPropsContext) {
-//   const { id } = params as { id: string };
-//   const resp = await fetch(
-//     `${process.env.NEXT_PUBLIC_API_URL}/api/app/getItem`,
-//   );
-//   const data = await resp.json();
-//   const tempDB: Post[] | undefined = data.items;
-//   const post: Post | undefined = tempDB?.find((item) => item.id === id);
-//   if (!post) {
-//     return { props: { post: null } };
-//   }
-//   return { props: { post } };
-// }
+export async function getStaticProps({ params }: GetStaticPropsContext) {
+  const { id } = params as { id: string };
+  const resp = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/app/getItem`,
+  );
+  const data = await resp.json();
+  const tempDB: Post[] | undefined = data.items;
+  const post: Post | undefined = tempDB?.find((item) => item.id === id);
+  if (!post) {
+    return { props: { post: null } };
+  }
+  return { props: { post } };
+}
 
-// export async function getStaticPaths() {
-//   const resp = await fetch(
-//     `${process.env.NEXT_PUBLIC_API_URL}/api/app/getItem`,
-//   );
-//   const data = await resp.json();
-//   const tempDB: Post[] | undefined = data.items;
-//   const paths = tempDB?.map((item) => ({
-//     params: { id: item.id },
-//   }));
-//   return { paths, fallback: false };
-// }
+export async function getStaticPaths() {
+  const resp = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/app/getItem`,
+  );
+  const data = await resp.json();
+  const tempDB: Post[] | undefined = data.items;
+  const paths = tempDB?.map((item) => ({
+    params: { id: item.id },
+  }));
+  return { paths, fallback: false };
+}
