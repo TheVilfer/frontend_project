@@ -1,17 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import type { Post } from '@/types/items';
+import type { Post, WardropeGeneration } from '@/types/items';
 import Head from 'next/head';
 
 const GenerateOutfit: React.FC = () => {
   const { data: session, status } = useSession();
-  const [outfit, setOutfit] = useState<{
-    dress?: Post;
-    shoes?: Post;
-    top?: Post;
-    bottom?: Post;
-  } | null>(null);
+  const [outfit, setOutfit] = useState<WardropeGeneration | null>(null);
   const [loading, setLoading] = useState(false);
   const [destination, setDestination] = useState('');
   const [wardrobe, setWardrobe] = useState<Post[]>([]);
@@ -38,12 +33,7 @@ const GenerateOutfit: React.FC = () => {
     });
     const data = await resp.json();
 
-    let outfit = JSON.parse(data.response.kwargs.content).outfit as {
-      dress?: Post;
-      shoes?: Post;
-      top?: Post;
-      bottom?: Post;
-    };
+    let outfit = JSON.parse(data.response.kwargs.content).outfit as WardropeGeneration;
 
     // Find the corresponding items in the wardrobe and set the full outfit
     outfit?.dress && (outfit.dress.img = imgHolder[outfit.dress.id]);
@@ -64,7 +54,7 @@ const GenerateOutfit: React.FC = () => {
       });
 
       const data = await resp.json();
-      const items = data.items;
+      const items = data.items as WardropeGeneration;
 
       console.log(data.items);
 

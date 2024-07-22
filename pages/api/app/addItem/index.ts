@@ -1,14 +1,13 @@
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../../auth/[...nextauth]';
-
+import { NextApiRequest, NextApiResponse } from 'next';
+import { Post } from '@/types/items';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
   process.env.SUPABASE_URL || '',
   process.env.SUPABASE_SERVICE_ROLE_KEY || '',
 );
-
-import { NextApiRequest, NextApiResponse } from 'next';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const session = await getServerSession(req, res, authOptions);
@@ -19,7 +18,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const { uuid } = session;
-  const { name, type, img } = req.body;
+  const { name, type, img } = req.body as Post;
 
   console.log({ name, type, img, uuid });
 

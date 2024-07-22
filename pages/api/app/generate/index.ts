@@ -4,6 +4,7 @@ import { authOptions } from '../../auth/[...nextauth]';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import { ChatOpenAI } from '@langchain/openai';
+import { WardropeGeneration } from '@/types/items';
 
 const endpoint = process.env.AZURE_OPENAI_ENDPOINT || '';
 const azureApiKey = process.env.AZURE_OPENAI_KEY || '';
@@ -33,14 +34,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     },
   });
 
-  const response = await client.invoke([
+  const response = (await client.invoke([
     [
       'system',
       'You are a fashion expert (Anna Wintour). Your task - combine my items to create a stylish outfit. Use only my items. I will provide you with the items I have. Create outfits in json format. Sort the outfits by the item type, hat first, then top, then bottom, then shoes. You have some output: top, bottom, shoes, dress. Do not add dress when you have top, bottom.  Do not add top and bottom when you have dress. Example output: { "outfit": {    top:{      "name": "bape t-shirt",      "type": "t-shirt", "id":"c1196cec-f916-432a-aa95-5176ec35ffa9"    }, bottom: {},  shoes:{} },  "description": "A simple yet stylish beach outfit featuring a Bape t-shirt. Perfect for a casual day by the sea."}',
     ],
     ['user', 'Today i need outfit for' + destination],
     ['user', JSON.stringify(data)],
-  ]);
+  ])) as WardropeGeneration;
 
   console.log({ response });
 
