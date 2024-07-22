@@ -6,8 +6,8 @@ export type Post = {
 };
 
 export interface WardropeGeneration {
-  top?: Post,
-  dress?: Post,
-  bottom?: Post,
-  shoes?: Post
+  top?: Post;
+  dress?: Post;
+  bottom?: Post;
+  shoes?: Post;
 }

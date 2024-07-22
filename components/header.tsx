@@ -5,18 +5,18 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   return (
     <header className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <Link href="/">
           <h1 className="text-2xl font-bold">Quantum Hedgehogs</h1>
-        </Link> 
+        </Link>
 
         <div className="flex items-center">
-        {session ? (
-              <nav className="hidden md:flex space-x-4">
+          {session ? (
+            <nav className="hidden md:flex space-x-4">
               <Link href="/app/wardrope">
                 <span className="text-gray-600 hover:text-gray-800 mx-2">
                   Wardrope
@@ -33,40 +33,40 @@ const Header: React.FC = () => {
                 </span>
               </Link>
             </nav>
-            ) : (
-              <nav className="hidden md:flex space-x-4">
-            <Link href="/#features">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                Features
-              </span>
-            </Link>
-            <Link href="/#how-it-works">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                How It Works
-              </span>
-            </Link>
-            <Link href="/#pricing">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                Pricing
-              </span>
-            </Link>
-            <Link href="/#testimonials">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                Testimonials
-              </span>
-            </Link>
-            <Link href="/#faq">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                FAQ
-              </span>
-            </Link>
-            <Link href="/about">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                About us
-              </span>
-            </Link>
-          </nav>
-            )}
+          ) : (
+            <nav className="hidden md:flex space-x-4">
+              <Link href="/#features">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  Features
+                </span>
+              </Link>
+              <Link href="/#how-it-works">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  How It Works
+                </span>
+              </Link>
+              <Link href="/#pricing">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  Pricing
+                </span>
+              </Link>
+              <Link href="/#testimonials">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  Testimonials
+                </span>
+              </Link>
+              <Link href="/#faq">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  FAQ
+                </span>
+              </Link>
+              <Link href="/about">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  About us
+                </span>
+              </Link>
+            </nav>
+          )}
 
           <div className="md:hidden">
             <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -82,8 +82,8 @@ const Header: React.FC = () => {
       </div>
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-md">
-        {session ? (
-              <nav className="flex flex-col items-center space-y-4 py-4">
+          {session ? (
+            <nav className="flex flex-col items-center space-y-4 py-4">
               <Link href="/app/wardrope">
                 <span className="text-gray-600 hover:text-gray-800 mx-2">
                   Wardrope
@@ -100,40 +100,40 @@ const Header: React.FC = () => {
                 </span>
               </Link>
             </nav>
-            ) : (
-              <nav className="flex flex-col items-center space-y-4 py-4">
-            <Link href="/#features">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                Features
-              </span>
-            </Link>
-            <Link href="/#how-it-works">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                How It Works
-              </span>
-            </Link>
-            <Link href="/#pricing">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                Pricing
-              </span>
-            </Link>
-            <Link href="/#testimonials">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                Testimonials
-              </span>
-            </Link>
-            <Link href="/#faq">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                FAQ
-              </span>
-            </Link>
-            <Link href="/about">
-              <span className="text-gray-600 hover:text-gray-800 mx-2">
-                About us
-              </span>
-            </Link>
-          </nav>
-            )}
+          ) : (
+            <nav className="flex flex-col items-center space-y-4 py-4">
+              <Link href="/#features">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  Features
+                </span>
+              </Link>
+              <Link href="/#how-it-works">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  How It Works
+                </span>
+              </Link>
+              <Link href="/#pricing">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  Pricing
+                </span>
+              </Link>
+              <Link href="/#testimonials">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  Testimonials
+                </span>
+              </Link>
+              <Link href="/#faq">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  FAQ
+                </span>
+              </Link>
+              <Link href="/about">
+                <span className="text-gray-600 hover:text-gray-800 mx-2">
+                  About us
+                </span>
+              </Link>
+            </nav>
+          )}
         </div>
       )}
     </header>
