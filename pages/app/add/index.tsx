@@ -18,7 +18,7 @@ export default function AddItem() {
     setName(e.target.value);
   };
 
-  const handleTypeChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setType(e.target.value);
   };
 
@@ -105,15 +105,20 @@ export default function AddItem() {
               className="block text-lg font-medium text-gray-700"
             >
               Type
-            </label>
-            <input
-              type="text"
-              id="type"
-              value={type}
-              onChange={handleTypeChange}
-              className={`mt-1 block w-full pl-3 pr-10 py-2 border ${errors.type ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md`}
-              required
-            />
+            </label>            
+            <select
+            name="type"
+            id="type"
+            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            onChange={handleTypeChange}
+          >
+            {typeClother.map((type, i) => (
+              <option key={i} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
+
             {errors.type && (
               <p className="mt-2 text-sm text-red-600">{errors.type}</p>
             )}
