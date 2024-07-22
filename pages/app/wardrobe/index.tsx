@@ -94,7 +94,7 @@ export default function Items({ posts }: Props) {
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const resp = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/app/getItem`,
+    `https://frontend-project-drab.vercel.app/api/app/getItem`,
   );
   const data = await resp.json();
   const posts: Post[] | undefined = data.items;

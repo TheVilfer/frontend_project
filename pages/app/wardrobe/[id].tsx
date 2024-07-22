@@ -57,7 +57,7 @@ export default function Item({ post }: Props) {
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const { id } = params as { id: string };
   const resp = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/app/getItem`,
+    `https://frontend-project-drab.vercel.app/api/app/getItem`,
   );
   const data = await resp.json();
   const tempDB: Post[] | undefined = data.items;
@@ -70,7 +70,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 
 export async function getStaticPaths() {
   const resp = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/app/getItem`,
+    `https://frontend-project-drab.vercel.app/api/app/getItem`,
   );
   const data = await resp.json();
   const tempDB: Post[] | undefined = data.items;
