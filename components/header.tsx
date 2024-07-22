@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { useState } from "react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+import { useState } from 'react';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -116,7 +116,7 @@ const Header: React.FC = () => {
 function UserAuth() {
   const { data: session, status } = useSession();
 
-  if (status === "authenticated") {
+  if (status === 'authenticated') {
     return (
       <div className="ml-5 flex items-center">
         <Link href="/app">
