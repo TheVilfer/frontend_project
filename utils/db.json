@@ -1,0 +1,32 @@
+[
+    {
+        "id": "c08398dc-c38b-4430-9f64-cf1152303553",
+        "name": "Nike Shoes",
+        "type": "shoes",
+        "img": "/nike_shoes.png"
+    },
+    {
+        "id": "f9a2e1b7-9a8d-4a7b-8e5e-3e8e6d9f2a1a",
+        "name": "Adidas T-Shirt",
+        "type": "t-shirt",
+        "img": "/adidas_tshirt.webp"
+    },
+    {
+        "id": "d4e6f5c3-2b1a-4c9d-8e7f-6a5b9c8d0e1f",
+        "name": "Levi's Jeans",
+        "type": "pants",
+        "img": "/levis_jeans.jpg"
+    },
+    {
+        "id": "a1b2c3d4-e5f6-7g8h-9i0j-a1b2c3d4e5f6",
+        "name": "H&M Dress",
+        "type": "clothes",
+        "img": "/hm_dress.jpg"
+    },
+    {
+        "id": "1a2b3c4d-5e6f-7g8h-9i0j-a1b2c3d4e5f8",
+        "name": "Zara Jacket",
+        "type": "clothes",
+        "img": "/zara_jacket.jpg"
+    }
+]
