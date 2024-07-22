@@ -3,6 +3,7 @@ import { Post } from '@/types/items';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 type Props = {
   post: Post | null;
@@ -30,6 +31,10 @@ export default function Item({ post }: Props) {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
+      <Head>
+        <title>{post.name} - Quantum Hedgehogs</title>
+        <meta name="description" content="Item details page" />
+      </Head>
       <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
         <h1 className="text-3xl font-extrabold text-gray-900 mb-4">
           {post.name}

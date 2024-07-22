@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import typeClother from '@/utils/type.json';
+import Head from 'next/head';
 
 export default function AddItem() {
   const [name, setName] = useState<string>('');
@@ -70,6 +71,10 @@ export default function AddItem() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
+      <Head>
+        <title>Add New Item - Quantum Hedgehogs</title>
+        <meta name="description" content="Add new item page" />
+      </Head>
       <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
         <h1 className="text-3xl font-extrabold text-gray-900 mb-6">
           Add New Item

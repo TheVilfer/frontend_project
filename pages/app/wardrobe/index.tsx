@@ -2,6 +2,8 @@ import { Post } from '@/types/items';
 import { GetStaticPropsContext } from 'next';
 import typeClother from '@/utils/type.json';
 
+import Head from 'next/head';
+
 import Link from 'next/link';
 
 import Image from 'next/image';
@@ -34,6 +36,13 @@ export default function Items({ posts }: Props) {
 
   return (
     <div className="p-4 sm:p-6 lg:p-8">
+      <Head>
+        <title>My Clothes</title>
+        <meta
+          name="description"
+          content="An innovative app that manages your wardrobe and creates stunning outfits using cutting-edge AI."
+        />
+      </Head>
       <h1 className="text-3xl font-bold text-gray-900 mb-6">My Clothes</h1>
       <Button className="mb-6">
         <Link href="/app/add">Add new item</Link>

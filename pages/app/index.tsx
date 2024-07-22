@@ -1,11 +1,19 @@
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function AppUser() {
   const { data: session, status } = useSession();
   return (
     <>
       <div className="py-12">
+        <Head>
+          <title>App - Quantum Hedgehogs</title>
+          <meta
+            name="description"
+            content="An innovative app that manages your wardrobe and creates stunning outfits using cutting-edge AI."
+          />
+        </Head>
         <section
           id="profile"
           className="bg-white py-16 shadow-lg rounded-lg mx-4 sm:mx-6 lg:mx-8"
